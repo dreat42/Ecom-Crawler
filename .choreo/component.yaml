@@ -1,6 +1,0 @@
-schemaVersion: 1.0
-endpoints:
-  - name: ecommerce-crawler
-    service:
-      port: 5000
-    type: REST

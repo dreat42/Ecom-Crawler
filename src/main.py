@@ -4,6 +4,7 @@ import argparse
 import json
 from src.crawler.ecommerce_crawler import EcommerceCrawler
 from src.config.crawl_config import CrawlConfig
+import os
 
 app = Flask(__name__)
 
@@ -41,5 +42,7 @@ def crawl():
         'statistics': statistics
     })
 
+port = int(os.getenv('PORT', 5000))
+
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000) 
+    app.run(host='0.0.0.0',  port=port) 
