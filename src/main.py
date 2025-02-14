@@ -8,6 +8,18 @@ import os
 
 app = Flask(__name__)
 
+@app.route('/', methods=['GET'])
+def status():
+    return jsonify({
+        'status': 'online',
+        'message': 'E-commerce crawler server is running and ready to accept requests',
+        'service': 'ecommerce-crawler',
+        'endpoints': {
+            'crawl': 'POST /crawl'
+        },
+        'version': '1.0.0'
+    }), 200
+
 @app.route('/crawl', methods=['POST'])
 def crawl():
     data = request.get_json()
